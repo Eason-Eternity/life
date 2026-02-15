@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宇少的日常</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f0e6 0%, #e8d9c5 100%);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 毛玻璃卡片 */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.38);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* 时间线样式 */
+        .entry {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .entry:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .entry-date {
+            font-size: 1.2rem;
+            color: #8b6f4c;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .entry-date .weather {
+            font-size: 0.9rem;
+            background: rgba(139, 111, 76, 0.2);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .entry-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .entry-content {
+            line-height: 1.8;
+            color: #3a4a5c;
+        }
+
+        .entry-content p {
+            margin-bottom: 1rem;
+        }
+
+        .entry-tags {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: rgba(139, 111, 76, 0.2);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #8b6f4c;
+        }
+
+        /* 头部 */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #4a3729;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #6b5844;
+            font-size: 1.1rem;
+        }
+
+        /* 导航 */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .nav a {
+            color: #6b5844;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* 底部 */
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: #8b6f4c;
+            font-size: 0.9rem;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: #d4b28c;
+            margin: 2rem auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="glass-card">
+            <div class="header">
+                <h1>🌱 宇少的日常</h1>
+                <p>把日子过成网站</p>
+            </div>
+
+            <div class="nav">
+                <a href="/life/">首页</a>
+                <a href="/life/about.html">关于</a>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- 第一篇日记 -->
+            <div class="entry">
+                <div class="entry-date">
+                    📅 2026年2月15日
+                    <span class="weather">☀️ 晴</span>
+                </div>
+                <div class="entry-content">
+                    <p>今天终于把网站的监控系统调通了。从早上折腾到晚上，经历了误报、缩进错误、网络报错，最后看到那封邮件时，突然觉得这些坑都值得。</p>
+                    <p>夸克网盘也单独做了处理，现在应该不会再误报了。明天早上等邮件验证。</p>
+                </div>
+                <div class="entry-tags">
+                    <span class="tag">#网站折腾</span>
+                    <span class="tag">#监控系统</span>
+                </div>
+            </div>
+
+            <!-- 可以继续加更多日记... -->
+
+            <div class="divider"></div>
+
+            <div class="footer">
+                <p>✦ 每一天都是新的坑 ✦</p>
+                <p style="margin-top: 1rem; font-size: 0.8rem;">Design by DeepSeek · 宇少</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 不蒜子统计 -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</body>
+</html>
