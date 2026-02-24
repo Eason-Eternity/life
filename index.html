@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💙 我们的日常 · 宇少</title>
+    <title>💙 宇 & 牛 · 我们的日常</title>
     <link rel="icon" href="https://s41.ax1x.com/2026/02/16/pZLbcOe.png" type="image/jpeg">
     <style>
         * {
@@ -24,7 +24,6 @@
             margin: 0 auto;
         }
 
-        /* 毛玻璃卡片 - 透明度提高，更透一点 */
         .glass-card {
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(12px);
@@ -35,7 +34,6 @@
             padding: 2rem 1.8rem;
         }
 
-        /* 头部 - 简洁 */
         .header {
             text-align: center;
             margin-bottom: 2.5rem;
@@ -48,14 +46,42 @@
             letter-spacing: 2px;
         }
 
-        .header .sub {
-            color: #6b5a6b;
-            font-size: 0.9rem;
-            margin-top: 0.3rem;
-            opacity: 0.8;
+        .timer {
+            font-size: 1.3rem;
+            color: #b5838d;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
         }
 
-        /* 日记时间线 */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .nav a {
+            color: #7a6a7a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
         .timeline {
             display: flex;
             flex-direction: column;
@@ -120,7 +146,6 @@
             border: 1px solid rgba(181, 131, 141, 0.3);
         }
 
-        /* 底部 */
         .footer {
             text-align: center;
             margin-top: 3rem;
@@ -138,28 +163,6 @@
             0%, 100% { opacity: 0.8; }
             50% { opacity: 1; transform: scale(1.1); }
         }
-
-        /* 导航简单保留 */
-        .nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0 1rem;
-        }
-
-        .nav a {
-            color: #7a6a7a;
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.3);
-            transition: all 0.3s;
-        }
-
-        .nav a:hover {
-            background: rgba(255, 255, 255, 0.6);
-        }
     </style>
 </head>
 <body>
@@ -167,7 +170,7 @@
         <div class="glass-card">
             <div class="header">
                 <h1>💙 宇 & 牛</h1>
-                <div class="sub">把日子过成我们的网站</div>
+                <div class="timer" id="loveTimer"></div>
             </div>
 
             <div class="nav">
@@ -175,7 +178,6 @@
                 <a href="/about.html">关于我们</a>
             </div>
 
-            <!-- 日记时间线 -->
             <div class="timeline">
                 <!-- 第一篇日记 -->
                 <div class="entry">
@@ -189,7 +191,7 @@
                     </div>
                     <div class="entry-tags">
                         <span class="tag">#图床</span>
-                        <span class="tag">#写给死牛</span>
+                        <span class="tag">#写给牛</span>
                     </div>
                 </div>
 
@@ -205,7 +207,7 @@
                     </div>
                     <div class="entry-tags">
                         <span class="tag">#监控系统</span>
-                        <span class="tag">#写给黑鬼心如水</span>
+                        <span class="tag">#写给牛</span>
                     </div>
                 </div>
             </div>
@@ -213,11 +215,32 @@
             <div class="footer">
                 <p>✦ 每一天都想和你分享 ✦</p>
                 <p style="margin-top: 1rem;">
-                    <span class="heart">❤️</span> 宇 & 刘 <span class="heart">❤️</span>
+                    <span class="heart">❤️</span> 宇 & 牛 <span class="heart">❤️</span>
                 </p>
                 <p style="margin-top: 1rem; font-size: 0.75rem; opacity: 0.6;">Design by DeepSeek</p>
             </div>
         </div>
     </div>
+
+    <script>
+        function updateLoveTimer() {
+            // ✨ 重要：把这里改成你们真正在一起的那一天！
+            const startDate = new Date('2026-01-01T00:00:00');  // ← 改这里！！！
+            
+            const now = new Date();
+            const diff = now - startDate;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('loveTimer').innerHTML = 
+                `💙 在一起 ${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+        }
+
+        setInterval(updateLoveTimer, 1000);
+        updateLoveTimer();
+    </script>
 </body>
 </html>
