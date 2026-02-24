@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宇少的日常</title>
-    <!-- 网站图标 (favicon) -  -->
+    <title>💙 我们的日常 · 宇少</title>
     <link rel="icon" href="https://s41.ax1x.com/2026/02/16/pZLbcOe.png" type="image/jpeg">
     <style>
         * {
@@ -15,66 +14,90 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #f5f0e6 0%, #e8d9c5 100%);
+            background: linear-gradient(135deg, #f8cdda 0%, #a1c4fd 100%);
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             padding: 2rem 1rem;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
-        /* 毛玻璃卡片 */
+        /* 毛玻璃卡片 - 透明度提高，更透一点 */
         .glass-card {
-            background: rgba(255, 255, 255, 0.38);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            margin-bottom: 2rem;
+            padding: 2rem 1.8rem;
         }
 
-        /* 时间线样式 */
+        /* 头部 - 简洁 */
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #4a3b47;
+            letter-spacing: 2px;
+        }
+
+        .header .sub {
+            color: #6b5a6b;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+            opacity: 0.8;
+        }
+
+        /* 日记时间线 */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
         .entry {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+            padding-bottom: 1.5rem;
         }
 
         .entry:last-child {
             border-bottom: none;
-            margin-bottom: 0;
             padding-bottom: 0;
         }
 
-        .entry-date {
-            font-size: 1.2rem;
-            color: #8b6f4c;
-            margin-bottom: 0.5rem;
+        .entry-header {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
         }
 
-        .entry-date .weather {
+        .entry-date {
+            font-size: 1rem;
+            color: #b5838d;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        .entry-weather {
             font-size: 0.9rem;
-            background: rgba(139, 111, 76, 0.2);
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-        }
-
-        .entry-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
+            color: #7a6a7a;
         }
 
         .entry-content {
             line-height: 1.8;
-            color: #3a4a5c;
+            color: #2c3e50;
         }
 
         .entry-content p {
@@ -85,67 +108,57 @@
             margin-top: 1rem;
             display: flex;
             gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .tag {
-            background: rgba(139, 111, 76, 0.2);
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: #8b6f4c;
-        }
-
-        /* 头部 */
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            color: #4a3729;
-            margin-bottom: 0.5rem;
-        }
-
-        .header p {
-            color: #6b5844;
-            font-size: 1.1rem;
-        }
-
-        /* 导航 */
-        .nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .nav a {
-            color: #6b5844;
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 0.5rem 1rem;
+            background: rgba(181, 131, 141, 0.2);
+            padding: 0.2rem 1rem;
             border-radius: 30px;
-            transition: all 0.3s;
-        }
-
-        .nav a:hover {
-            background: rgba(255, 255, 255, 0.5);
+            font-size: 0.75rem;
+            color: #b5838d;
+            border: 1px solid rgba(181, 131, 141, 0.3);
         }
 
         /* 底部 */
         .footer {
             text-align: center;
-            margin-top: 4rem;
-            color: #8b6f4c;
-            font-size: 0.9rem;
+            margin-top: 3rem;
+            color: #7a6a7a;
+            font-size: 0.85rem;
         }
 
-        .divider {
-            width: 60px;
-            height: 2px;
-            background: #d4b28c;
-            margin: 2rem auto;
+        .heart {
+            color: #f8a5a5;
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* 导航简单保留 */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .nav a {
+            color: #7a6a7a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.6);
         }
     </style>
 </head>
@@ -153,61 +166,56 @@
     <div class="container">
         <div class="glass-card">
             <div class="header">
-                <h1>🌱 宇少的日常</h1>
-                <p>把日子过成网站</p>
+                <h1>💙 宇少 & 宝贝</h1>
+                <div class="sub">把日子过成我们的网站</div>
             </div>
 
             <div class="nav">
                 <a href="/">首页</a>
-                <a href="/about.html">关于</a>
+                <a href="/about.html">关于我们</a>
             </div>
 
-            <div class="divider"></div>
-
-            <!-- 第一篇日记 -->
-            <div class="entry">
-                <div class="entry-date">
-                    📅 2026年2月15日
-                    <span class="weather">☀️ 晴</span>
-                </div>
-                <div class="entry-content">
-                    <p>今天终于把网站的监控系统调通了。从早上折腾到晚上，经历了误报、缩进错误、网络报错，最后看到那封邮件时，突然觉得这些坑都值得。</p>
-                    <p>夸克网盘也单独做了处理，现在应该不会再误报了。明天早上等邮件验证。</p>
-                </div>
-                <div class="entry-tags">
-                    <span class="tag">#网站折腾</span>
-                    <span class="tag">#监控系统</span>
-                </div>
-            </div>
-
-            <!-- 图床测试 -->
-            <div class="entry">
-                <div class="entry-date">
-                    📅 2026年2月23日
-                    <span class="weather">☁️ 多云</span>
-                </div>
-                <div class="entry-content">
-                    <p>终于把阿里云OSS图床配通了！从下午折腾到晚上，经历了403、SignatureDoesNotMatch、回收站、网络策略……最后发现是AccessKey被闲置规则卡住了。</p>
-                    <p>现在用PicGo上传图片，链接直接复制。测试一下：</p>
-                    <div style="margin: 1.5rem 0; text-align: center;">
-                        <img src="https://yushao-img.oss-cn-beijing.aliyuncs.com/91b367ca6b1930c67818d90639d6285d.jpg" 
-                             alt="图床测试图片" 
-                             style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <!-- 日记时间线 -->
+            <div class="timeline">
+                <!-- 第一篇日记 -->
+                <div class="entry">
+                    <div class="entry-header">
+                        <span class="entry-date">2026.02.23</span>
+                        <span class="entry-weather">☁️ 多云</span>
                     </div>
-                    <p>这张图是用OSS存的，在网页里能正常显示。但如果直接点开链接，浏览器会强制下载——这是OSS的新策略，以后有空再绑个自定义域名解决。</p>
+                    <div class="entry-content">
+                        <p>今天终于把阿里云OSS图床配通了。从下午折腾到晚上，经历了403、SignatureDoesNotMatch……但最后看到图片在网站里显示出来的时候，好想让你也看看。</p>
+                        <p>以后我们拍的照片，就存这里了，不会丢。</p>
+                    </div>
+                    <div class="entry-tags">
+                        <span class="tag">#图床</span>
+                        <span class="tag">#写给宝贝</span>
+                    </div>
                 </div>
-                <div class="entry-tags">
-                    <span class="tag">#图床</span>
-                    <span class="tag">#OSS</span>
-                    <span class="tag">#坑填平了</span>
+
+                <!-- 第二篇日记 -->
+                <div class="entry">
+                    <div class="entry-header">
+                        <span class="entry-date">2026.02.15</span>
+                        <span class="entry-weather">☀️ 晴</span>
+                    </div>
+                    <div class="entry-content">
+                        <p>监控系统终于调通了，以后网盘链接挂了我会第一时间知道。想到你之前说“你折腾这些有什么用”，但你知道的，我喜欢把东西弄得稳稳的。</p>
+                        <p>就像对你一样。</p>
+                    </div>
+                    <div class="entry-tags">
+                        <span class="tag">#监控系统</span>
+                        <span class="tag">#写给宝贝</span>
+                    </div>
                 </div>
             </div>
-
-            <div class="divider"></div>
 
             <div class="footer">
-                <p>✦ 每一天都是新的坑 ✦</p>
-                <p style="margin-top: 1rem; font-size: 0.8rem;">Design by DeepSeek · 宇少</p>
+                <p>✦ 每一天都想和你分享 ✦</p>
+                <p style="margin-top: 1rem;">
+                    <span class="heart">❤️</span> 宇少 & 刘心怡 <span class="heart">❤️</span>
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.75rem; opacity: 0.6;">Design by DeepSeek</p>
             </div>
         </div>
     </div>
