@@ -28,12 +28,12 @@ collections:
       - {label: "标签", name: "tags", widget: "list", required: false}
 
 commit_messages:
-  create: Create {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}>
-  update: Update {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}>
-  delete: Delete {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}>
-  uploadMedia: Upload "{{path}}" - {{author-name}} <{{author-login}}>
-  deleteMedia: Delete "{{path}}" - {{author-name}} <{{author-login}}>
-  openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}>
+  create: Create {{collection}} "{{slug}}" - {{author-name}} {{author-login}}
+  update: Update {{collection}} "{{slug}}" - {{author-name}} {{author-login}}
+  delete: Delete {{collection}} "{{slug}}" - {{author-name}} {{author-login}}
+  uploadMedia: Upload {{path}} - {{author-name}} {{author-login}}
+  deleteMedia: Delete {{path}} - {{author-name}} {{author-login}}
+  openAuthoring: Message {{message}} - {{author-name}} {{author-login}}
 
 auth:
   email_claim: email
