@@ -1,0 +1,21 @@
+backend:
+  name: github
+  repo: Eason-Eternity/days.xin  # 改成你自己的仓库
+  branch: main
+  site_domain: days.xin
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "diary"
+    label: "日记"
+    folder: "content/diary"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "发布日期", name: "date", widget: "datetime"}
+      - {label: "照片", name: "image", widget: "image", required: false}
+      - {label: "正文", name: "body", widget: "markdown"}
+      - {label: "标签", name: "tags", widget: "list", required: false}
