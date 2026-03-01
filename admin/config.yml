@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: Eason-Eternity/days.xin  # 改成你自己的仓库
+  name: git-gateway
   branch: main
-  site_domain: days.xin
 
 media_folder: "uploads"
 public_folder: "/uploads"
