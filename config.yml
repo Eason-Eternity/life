@@ -1,0 +1,54 @@
+# 媒体文件配置
+media_folder: "uploads"
+public_folder: "/uploads"
+media_library:
+  name: uploadcare
+  config: {}
+
+# 后端认证配置
+backend:
+  name: git-gateway
+  repo: Eason-Eternity/life
+  branch: main
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/9943dc6b-266a-4824-b37c-b97fcf2d9e4d/pkce
+  auth_token_endpoint: /sites/9943dc6b-266a-4824-b37c-b97fcf2d9e4d/token
+  gateway_url: https://gateway.decapbridge.com
+
+# 内容集合（日记）
+collections:
+  - name: "diary"
+    label: "📔 日记"           # 中文标题
+    label_singular: "📝 日记"   # 单数形式
+    folder: "content/diary"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "📅 {{year}}年{{month}}月{{day}}日 - {{title}}"  # 列表显示格式
+    fields:
+      - {label: "📌 标题", name: "title", widget: "string"}
+      - {label: "📅 日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm"}
+      - {label: "🖼️ 照片", name: "image", widget: "image", required: false, hint: "可以上传一张照片"}
+      - {label: "✍️ 正文", name: "body", widget: "markdown", hint: "想写什么就写什么"}
+      - {label: "🏷️ 标签", name: "tags", widget: "list", required: false, hint: "用逗号分隔多个标签"}
+
+# 提交信息（保留英文也可以，不影响她）
+commit_messages:
+  create: 创建了 {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}>
+  update: 更新了 {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}>
+  delete: 删除了 {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}>
+  uploadMedia: 上传了 "{{path}}" - {{author-name}} <{{author-login}}>
+  deleteMedia: 删除了 "{{path}}" - {{author-name}} <{{author-login}}>
+  openAuthoring: {{message}} - {{author-name}} <{{author-login}}>
+
+# 用户认证信息字段映射
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+# 自定义LOGO和站点链接
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+site_url: https://days.xin
+display_url: https://days.xin  # 后台底部显示的站点链接
