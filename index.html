@@ -13,95 +13,48 @@
 
         body {
             min-height: 100vh;
-            background: url('https://yushao-img.oss-cn-beijing.aliyuncs.com/412eee5c13253f8ecb2192d8f4eab66a.jpg') no-repeat center center fixed;
-            background-size: cover;
-            font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
             position: relative;
+            cursor: pointer;
         }
 
-        body::before {
-            content: '';
+        /* 全屏视频背景 */
+        #bgVideo {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(3px);
+            object-fit: cover;
             z-index: 0;
         }
 
-        .container {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-        }
-
-        @keyframes breathe {
-            0% {
-                opacity: 0;
-                transform: scale(0.92);
-                filter: blur(0px);
-            }
-            30% {
-                opacity: 1;
-                transform: scale(1.02);
-                filter: blur(0px);
-            }
-            70% {
-                opacity: 1;
-                transform: scale(1);
-                filter: blur(0px);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(0.95);
-                filter: blur(1px);
-            }
-        }
-
-        .memory-text {
-            font-size: min(20vw, 120px);
-            font-weight: 700;
-            color: rgba(255, 255, 245, 0.95);
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            letter-spacing: 0.1em;
-            font-family: 'Times New Roman', 'Songti SC', serif;
-            backdrop-filter: blur(2px);
-            padding: 0.5rem 1.5rem;
-            border-radius: 60px;
-            background: rgba(0, 0, 0, 0.2);
-            display: inline-block;
-            animation: breathe 4s ease-in-out forwards;
-        }
-
-        .tiny {
+        /* 半透明遮罩，让画面更柔和（可选） */
+        .overlay {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 0.7rem;
-            color: rgba(255,255,240,0.6);
-            background: rgba(0,0,0,0.2);
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            backdrop-filter: blur(4px);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(1px);
             z-index: 1;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="memory-text">回忆</div>
-    </div>
-    <div class="tiny">宇 & 牛</div>
+    <!-- 视频背景（自动循环播放） -->
+    <video autoplay loop muted playsinline id="bgVideo">
+        <source src="https://yushao-img.oss-cn-beijing.aliyuncs.com/1848b97a2edf7ed1d45ca4a45d1ac3c6.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
 
     <script>
-        setTimeout(() => {
-            window.location.href = "/directory.html";
-        }, 5600);
+        // 点击页面任意位置，跳转到目录页
+        document.body.addEventListener('click', () => {
+            window.location.href = '/directory.html';
+        });
     </script>
 </body>
-</html>
+</html>	
