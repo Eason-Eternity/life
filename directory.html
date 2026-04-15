@@ -13,7 +13,7 @@
 
         body {
             min-height: 100vh;
-            background: url('https://yushao-img.oss-cn-beijing.aliyuncs.com/412eee5c13253f8ecb2192d8f4eab66a.jpg') no-repeat center center fixed;
+            background: url('https://yushao-img.oss-cn-beijing.aliyuncs.com/mulu.png') no-repeat center center fixed;
             background-size: cover;
             font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
             display: flex;
@@ -23,6 +23,7 @@
             position: relative;
         }
 
+        /* 深色柔光遮罩 */
         body::before {
             content: '';
             position: fixed;
@@ -30,75 +31,88 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(3px);
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
             z-index: 0;
         }
 
         .container {
             position: relative;
             z-index: 1;
-            max-width: 360px;
+            max-width: 500px;
             width: 100%;
             text-align: center;
         }
 
+        /* 顶部大计时器 */
+        .timer {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            border-radius: 60px;
+            padding: 0.8rem 1.5rem;
+            margin-bottom: 3rem;
+            display: inline-block;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 245, 0.95);
+            border: 0.5px solid rgba(255,255,240,0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        /* 毛玻璃透明按钮组 */
         .buttons {
             display: flex;
             justify-content: center;
-            gap: 1.2rem;
+            gap: 2rem;
             flex-wrap: wrap;
-            margin: 2rem 0;
+            margin-top: 2rem;
         }
 
         .btn {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(6px);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
             border-radius: 60px;
-            padding: 0.45rem 1.1rem;
+            padding: 0.8rem 2rem;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 1.2rem;
             font-weight: 500;
             color: rgba(255, 255, 245, 0.9);
-            transition: all 0.2s ease;
-            border: 0.5px solid rgba(255,255,245,0.4);
+            transition: all 0.25s ease;
+            border: 0.5px solid rgba(255, 255, 245, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .btn:hover {
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.35);
             color: white;
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 245, 0.6);
         }
 
-        .timer {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(4px);
-            border-radius: 40px;
-            padding: 0.3rem 1rem;
-            display: inline-block;
-            font-size: 0.7rem;
-            color: rgba(255,255,240,0.9);
-        }
-
+        /* 右下角小字 */
         .footer {
             position: fixed;
             bottom: 1rem;
             right: 1rem;
             font-size: 0.6rem;
-            color: rgba(255,255,240,0.5);
-            background: rgba(0,0,0,0.2);
+            color: rgba(255, 255, 240, 0.5);
+            background: rgba(0, 0, 0, 0.2);
             padding: 0.2rem 0.6rem;
             border-radius: 30px;
+            backdrop-filter: blur(4px);
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- 顶部大计时器 -->
+        <div class="timer" id="loveTimer">加载中...</div>
+
         <div class="buttons">
-            <a href="#" class="btn">📸 合照区</a>
-            <a href="#" class="btn">😂 丑照区</a>
+            <a href="#" class="btn">📸 相册区</a>
             <a href="#" class="btn">📖 日记区</a>
         </div>
-        <div class="timer" id="loveTimer">💙 加载中...</div>
     </div>
     <div class="footer">✨ 我们的博物馆 ✨</div>
 
@@ -107,12 +121,15 @@
             const start = new Date('2021-10-29T06:00:00');
             const now = new Date();
             const diff = now - start;
+
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            document.getElementById('loveTimer').innerHTML = `💙 在一起 ${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+
+            document.getElementById('loveTimer').innerHTML = `${days}天 ${hours}小时 ${minutes}分 ${seconds}秒`;
         }
+
         setInterval(updateLoveTimer, 1000);
         updateLoveTimer();
     </script>
