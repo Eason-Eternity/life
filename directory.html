@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>📖 目录 · 回忆</title>
+    <title>📖 宇 & 牛 · 日记目录</title>
     <style>
         * {
             margin: 0;
@@ -12,149 +12,203 @@
         }
 
         body {
-            min-height: 100vh;
-            background: url('https://yushao-img.oss-cn-beijing.aliyuncs.com/mulu.png') no-repeat center center fixed;
-            background-size: cover;
-            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            background: white;
+            font-family: 'Times New Roman', '宋体', 'Georgia', serif;
+            color: #1a1a1a;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+
+        .book {
+            max-width: 880px;
+            margin: 0 auto;
+            background: white;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            position: relative;
-        }
-
-        /* 深色柔光遮罩 */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(2px);
-            z-index: 0;
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-        }
-
-<<<<<<< HEAD
-        /* 顶部大计时器 */
-=======
->>>>>>> 655182a86e2431d8bb524cd56f5789373ffa0bb0
-        .timer {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(8px);
-            border-radius: 60px;
-            padding: 0.8rem 1.5rem;
-            margin-bottom: 3rem;
-            display: inline-block;
-<<<<<<< HEAD
-            font-size: 2rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            color: rgba(255, 255, 245, 0.95);
-=======
-            font-size: 1.2rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            color: rgba(255, 255, 245, 0.9);
->>>>>>> 655182a86e2431d8bb524cd56f5789373ffa0bb0
-            border: 0.5px solid rgba(255,255,240,0.2);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-
-<<<<<<< HEAD
-        /* 毛玻璃透明按钮组 */
-=======
->>>>>>> 655182a86e2431d8bb524cd56f5789373ffa0bb0
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            gap: 2rem;
+            box-shadow: 0 0 20px rgba(0,0,0,0.02);
         }
 
-        .btn {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(12px);
-            border-radius: 60px;
-            padding: 0.8rem 2rem;
-            text-decoration: none;
+        /* 目录（左页） */
+        .toc {
+            flex: 1.2;
+            min-width: 220px;
+            border-right: 1px solid #eaeaea;
+            padding-right: 2rem;
+        }
+
+        .toc h2 {
             font-size: 1.2rem;
             font-weight: 500;
-            color: rgba(255, 255, 245, 0.9);
-            transition: all 0.25s ease;
-            border: 0.5px solid rgba(255, 255, 245, 0.3);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            letter-spacing: 2px;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
         }
 
-        .btn:hover {
-            background: rgba(255, 255, 255, 0.35);
-            color: white;
-            transform: scale(1.02);
-            border-color: rgba(255, 255, 245, 0.6);
+        .toc-list {
+            list-style: none;
         }
 
-<<<<<<< HEAD
-        /* 右下角小字 */
-=======
->>>>>>> 655182a86e2431d8bb524cd56f5789373ffa0bb0
+        .toc-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .toc-link {
+            text-decoration: none;
+            font-size: 1rem;
+            color: #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px dotted #eee;
+            padding: 0.3rem 0;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .toc-link:hover {
+            color: #6c6c6c;
+        }
+
+        .page-number {
+            font-size: 0.8rem;
+            color: #8a8a8a;
+            font-family: monospace;
+        }
+
+        /* 日记内容（右页） */
+        .content {
+            flex: 2.5;
+            min-width: 260px;
+        }
+
+        .diary-paper {
+            background: white;
+            padding: 0.2rem 0 1rem 0;
+        }
+
+        .diary-date {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #5a5a5a;
+            margin-bottom: 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .diary-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #111;
+        }
+
+        .diary-text {
+            font-size: 1rem;
+            color: #2c2c2c;
+            text-align: justify;
+        }
+
+        .diary-text p {
+            margin-bottom: 1rem;
+        }
+
+        /* 底部页码装饰 */
         .footer {
-            position: fixed;
-            bottom: 1rem;
-            right: 1rem;
-            font-size: 0.6rem;
-            color: rgba(255, 255, 240, 0.5);
-            background: rgba(0, 0, 0, 0.2);
-            padding: 0.2rem 0.6rem;
-            border-radius: 30px;
-            backdrop-filter: blur(4px);
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #aaa;
+            border-top: 1px solid #eaeaea;
+            padding-top: 1rem;
+        }
+
+        @media (max-width: 680px) {
+            .book {
+                flex-direction: column;
+            }
+            .toc {
+                border-right: none;
+                border-bottom: 1px solid #eaeaea;
+                padding-bottom: 1.5rem;
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-<<<<<<< HEAD
-        <!-- 顶部大计时器 -->
-        <div class="timer" id="loveTimer">加载中...</div>
+<div class="book">
+    <!-- 目录区 -->
+    <div class="toc">
+        <h2>· 目 录 ·</h2>
+        <ul class="toc-list" id="tocList">
+            <!-- 动态生成 -->
+        </ul>
+    </div>
 
-=======
-        <div class="timer" id="loveTimer">停在 2026.04.20 22:00</div>
->>>>>>> 655182a86e2431d8bb524cd56f5789373ffa0bb0
-        <div class="buttons">
-            <a href="#" class="btn">📸 相册区</a>
-            <a href="#" class="btn">📖 日记区</a>
+    <!-- 日记内容区 -->
+    <div class="content">
+        <div class="diary-paper" id="diaryContent">
+            <!-- 默认显示第一篇日记 -->
         </div>
     </div>
-    <div class="footer">✨ 我们的博物馆 ✨</div>
-<<<<<<< HEAD
+</div>
+<div class="footer">没有终点 · 只是换了一条路</div>
 
-    <script>
-        function updateLoveTimer() {
-            const start = new Date('2021-10-29T06:00:00');
-            const now = new Date();
-            const diff = now - start;
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('loveTimer').innerHTML = `${days}天 ${hours}小时 ${minutes}分 ${seconds}秒`;
+<script>
+    // 日记数据（按顺序，页码自动生成）
+    const diaries = [
+        {
+            date: "2026.04.20 · 22:00",
+            title: "最后一页",
+            content: "<p>1600多天，像翻完了一本很厚的书。</p><p>我曾经以为只要我足够努力、足够用心，结局就不会走样。后来发现，感情不是一个人能写完的故事。</p><p>你教会我认真，也教会我遗憾。我不怪你，也不怪自己。只是有点可惜——可惜时间不会停在最好的时候。</p><p>这本日记就写到这里了。以后的日子，我会好好过。你也是。</p><p style='margin-top:1.8rem'>—— 宇</p>"
+        },
+        {
+            date: "2026.04.15",
+            title: "风琴本",
+            content: "<p>把 days.xin 做成了风琴本的样子。你说像一本故事书，那我以后每一天都往里面写一页。</p><p>窗外有风，阳光很好。这样就够了。</p>"
+        },
+        {
+            date: "2026.04.10",
+            title: "计时器停了",
+            content: "<p>你让停在 4 月 20 日 22:00。我照做了。</p><p>时间不动了，但日子还在走。</p>"
         }
+    ];
 
-        setInterval(updateLoveTimer, 1000);
-        updateLoveTimer();
-    </script>
-=======
->>>>>>> 655182a86e2431d8bb524cd56f5789373ffa0bb0
+    // 生成目录 & 渲染日记
+    const tocList = document.getElementById('tocList');
+    const diaryContent = document.getElementById('diaryContent');
+
+    function renderDiary(index) {
+        const d = diaries[index];
+        if (!d) return;
+        diaryContent.innerHTML = `
+            <div class="diary-date">📖 ${d.date}</div>
+            <div class="diary-title">${d.title}</div>
+            <div class="diary-text">${d.content}</div>
+        `;
+        // 可选：更新当前激活样式
+        document.querySelectorAll('.toc-link').forEach((link, i) => {
+            if (i === index) link.style.color = "#6c6c6c";
+            else link.style.color = "#1a1a1a";
+        });
+    }
+
+    // 填充目录（页码从 i 开始）
+    diaries.forEach((d, i) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<div class="toc-link" data-index="${i}">
+                            <span>${d.title}</span>
+                            <span class="page-number">p.${i + 1}</span>
+                        </div>`;
+        li.querySelector('.toc-link').addEventListener('click', () => renderDiary(i));
+        tocList.appendChild(li);
+    });
+
+    // 默认显示第一篇
+    renderDiary(0);
+</script>
 </body>
 </html>
