@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>📖 宇 & 牛 · 日记</title>
+    <title>📔 山形 · 日记</title>
     <style>
         * {
             margin: 0;
@@ -12,81 +12,177 @@
         }
 
         body {
-            background: white;
-            font-family: 'Times New Roman', '宋体', 'Georgia', serif;
+            background: #f9f9f7;
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
             padding: 2rem 1rem;
-            color: #1a1a1a;
-            line-height: 1.6;
+            color: #1e1e1c;
         }
 
-        .diary {
-            max-width: 680px;
+        .book {
+            max-width: 700px;
             margin: 0 auto;
-            background: white;
-            padding: 2rem 1.8rem;
-            box-shadow: 0 0 20px rgba(0,0,0,0.02);
+            background: #ffffff;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.02);
+            padding: 2.5rem 2rem;
         }
 
-        /* 日期 */
-        .date {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #4a4a4a;
-            margin-bottom: 2rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #eaeaea;
-        }
-
-        /* 正文 */
-        .entry {
-            margin-bottom: 2.5rem;
-        }
-
-        .entry-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #111;
-        }
-
-        .entry-content {
-            font-size: 1rem;
-            color: #2c2c2c;
-            text-align: justify;
-        }
-
-        .entry-content p {
-            margin-bottom: 1.2rem;
-        }
-
-        /* 底部 */
-        .footer {
-            margin-top: 3rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eaeaea;
-            font-size: 0.7rem;
-            color: #999;
+        .title-page {
             text-align: center;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e2e0db;
+            padding-bottom: 2rem;
+        }
+
+        .title-page h1 {
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: #2c2c2a;
+            margin-bottom: 0.3rem;
+        }
+
+        .title-page p {
+            font-size: 0.75rem;
+            color: #8c8a85;
+            text-transform: uppercase;
+        }
+
+        .toc {
+            margin: 1.5rem 0 2rem;
+        }
+
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.5rem 0;
+            border-bottom: 1px dotted #ecebe6;
+            cursor: pointer;
+        }
+
+        .toc-item:hover {
+            background: #faf9f7;
+            padding-left: 0.5rem;
+        }
+
+        .toc-title {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #2b2b28;
+        }
+
+        .toc-page {
+            font-size: 0.7rem;
+            color: #aeaba3;
+        }
+
+        .diary-page {
+            margin-top: 1.5rem;
+        }
+
+        .diary-date {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #a5a19a;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #efede9;
+            padding-bottom: 0.2rem;
+        }
+
+        .diary-title {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin: 1rem 0 1rem 0;
+            color: #231f1b;
+        }
+
+        .diary-content {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #2e2c28;
+        }
+
+        .diary-content p {
+            margin-bottom: 1rem;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 1px solid #ecebe6;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.65rem;
+            color: #bbb8b1;
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
-    <div class="diary">
-        <div class="date">2026.04.20  ·  22:00</div>
-
-        <div class="entry">
-            <div class="entry-title">最后一页</div>
-            <div class="entry-content">
-                <p>1600多天，像翻完了一本很厚的书。</p>
-                <p>我曾经以为只要我足够努力、足够用心，结局就不会走样。后来发现，感情不是一个人能写完的故事。</p>
-                <p>你教会我认真，也教会我遗憾。我不怪你，也不怪自己。只是有点可惜——可惜时间不会停在最好的时候。</p>
-                <p>这本日记就写到这里了。以后的日子，我会好好过。你也是。</p>
-                <p style="margin-top: 1.8rem;">—— 宇</p>
-            </div>
-        </div>
-
-        <div class="footer">🚲 没有终点 · 只是换了一条路</div>
+<div class="book">
+    <div class="title-page">
+        <h1>山形 · 日记</h1>
+        <p>二零二六年 · 春</p>
     </div>
+
+    <!-- 目录区 -->
+    <div class="toc" id="tocContainer"></div>
+    <hr>
+
+    <!-- 日记展示区 -->
+    <div id="diaryContainer" class="diary-page"></div>
+    <div class="footer-note">路还长 · 慢慢记</div>
+</div>
+
+<script>
+    // 日记数组 —— 第一篇是「山形开始」
+    const diaries = [
+        {
+            date: "2026.04.25 · 晴",
+            title: "山形开始",
+            content: "<p>以前这个网站叫「宇 & 牛」，现在只有我一个人了。</p><p>我不打算关掉它。改了个名字，叫「山形日记」。山形不是一个地方，是我自己。从今天起，我写给自己看。</p><p>故事没有停在4月20日。它只是换了一个主语。</p><p>—— 山形</p>"
+        }
+        // 你可以在这里继续添加日记
+        // {
+        //     date: "2026.04.26 · 阴",
+        //     title: "第二篇",
+        //     content: "<p>...</p>"
+        // }
+    ];
+
+    const tocContainer = document.getElementById('tocContainer');
+    const diaryContainer = document.getElementById('diaryContainer');
+
+    function renderDiary(index) {
+        const entry = diaries[index];
+        if (!entry) return;
+        diaryContainer.innerHTML = `
+            <div class="diary-date">📖 ${entry.date}</div>
+            <div class="diary-title">${entry.title}</div>
+            <div class="diary-content">${entry.content}</div>
+        `;
+    }
+
+    // 生成目录（按数组顺序）
+    diaries.forEach((diary, idx) => {
+        const tocDiv = document.createElement('div');
+        tocDiv.className = 'toc-item';
+        tocDiv.innerHTML = `
+            <span class="toc-title">${diary.title}</span>
+            <span class="toc-page">p.${idx + 1}</span>
+        `;
+        tocDiv.addEventListener('click', () => {
+            renderDiary(idx);
+            document.getElementById('diaryContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        tocContainer.appendChild(tocDiv);
+    });
+
+    // 默认显示第一篇（山形开始）
+    renderDiary(0);
+</script>
 </body>
 </html>
