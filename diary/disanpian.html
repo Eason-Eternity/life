@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>风琴本 · 山形日记</title>
+    <title>我们的翻完了 · 山形日记</title>
     <style>
         * {
             margin: 0;
@@ -21,16 +21,42 @@
             background: #ffffff;
             padding: 2.5rem 2rem;
         }
-        .back-link {
-            display: inline-block;
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 1.5rem;
+        }
+        .back-link {
             font-size: 0.8rem;
             color: #aeaba3;
             text-decoration: none;
+            transition: color 0.2s;
         }
         .back-link:hover {
             color: #6a5a4a;
         }
+        .nav-arrows {
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-arrow {
+            font-size: 0.8rem;
+            color: #aeaba3;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-arrow:hover {
+            color: #6a5a4a;
+        }
+        .nav-arrow.disabled {
+            color: #d6d4ce;
+            pointer-events: none;
+        }
+
+        /* 日期 */
         .diary-date {
             font-size: 0.7rem;
             color: #a5a19a;
@@ -38,12 +64,16 @@
             border-bottom: 1px solid #efede9;
             padding-bottom: 0.2rem;
         }
+
+        /* 标题 */
         .diary-title {
             font-size: 1.4rem;
             font-weight: 400;
             margin: 0.5rem 0 1.2rem 0;
             color: #231f1b;
         }
+
+        /* 正文 */
         .diary-content {
             font-size: 0.95rem;
             line-height: 1.7;
@@ -52,11 +82,40 @@
         .diary-content p {
             margin-bottom: 1rem;
         }
+
+        /* 底部翻页（移动端） */
+        .bottom-nav {
+            display: none;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #efede9;
+        }
+
+        @media (max-width: 500px) {
+            .paper {
+                padding: 1.5rem 1rem;
+            }
+            .top-nav .nav-arrows {
+                display: none;
+            }
+            .bottom-nav {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
 <div class="paper">
-    <a href="../index.html" class="back-link">← 返回目录</a>
+    <!-- 顶部导航 -->
+    <div class="top-nav">
+        <a href="../index.html" class="back-link">← 返回目录</a>
+        <div class="nav-arrows">
+            <a href="fengqinben.html" class="nav-arrow">← 上一篇</a>
+            <a href="shanxing-start.html" class="nav-arrow">下一篇 →</a>
+        </div>
+    </div>
+
     <div class="diary-date">📖 2026.04.20 · 大雨</div>
     <div class="diary-title">我们的翻完了</div>
     <div class="diary-content">
@@ -64,6 +123,13 @@
         <p>我曾经以为只要我足够努力、足够用心，结局就不会走样。后来发现，感情不是一个人能写完的故事。</p>
         <p>你教会我认真，也教会我遗憾。我不怪你，也不怪自己。只是有点可惜——可惜时间不会停在最好的时候。</p>
         <p>这本日记就写到这里了。以后的日子，我会好好过。你也是。</p>
+        <p>—— 宇</p>
+    </div>
+
+    <!-- 底部翻页（仅移动端显示） -->
+    <div class="bottom-nav">
+        <a href="fengqinben.html" class="nav-arrow">← 上一篇</a>
+        <a href="shanxing-start.html" class="nav-arrow">下一篇 →</a>
     </div>
 </div>
 </body>

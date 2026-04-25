@@ -21,16 +21,42 @@
             background: #ffffff;
             padding: 2.5rem 2rem;
         }
-        .back-link {
-            display: inline-block;
+
+        /* 顶部导航：返回 + 翻页 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 1.5rem;
+        }
+        .back-link {
             font-size: 0.8rem;
             color: #aeaba3;
             text-decoration: none;
+            transition: color 0.2s;
         }
         .back-link:hover {
             color: #6a5a4a;
         }
+        .nav-arrows {
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-arrow {
+            font-size: 0.8rem;
+            color: #aeaba3;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-arrow:hover {
+            color: #6a5a4a;
+        }
+        .nav-arrow.disabled {
+            color: #d6d4ce;
+            pointer-events: none;
+        }
+
+        /* 日期 */
         .diary-date {
             font-size: 0.7rem;
             color: #a5a19a;
@@ -38,12 +64,16 @@
             border-bottom: 1px solid #efede9;
             padding-bottom: 0.2rem;
         }
+
+        /* 标题 */
         .diary-title {
             font-size: 1.4rem;
             font-weight: 400;
             margin: 0.5rem 0 1.2rem 0;
             color: #231f1b;
         }
+
+        /* 正文 */
         .diary-content {
             font-size: 0.95rem;
             line-height: 1.7;
@@ -52,18 +82,56 @@
         .diary-content p {
             margin-bottom: 1rem;
         }
+
+        /* 底部翻页（移动端备用） */
+        .bottom-nav {
+            display: none;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #efede9;
+        }
+        .bottom-nav .nav-arrow {
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 500px) {
+            .paper {
+                padding: 1.5rem 1rem;
+            }
+            .top-nav .nav-arrows {
+                display: none;
+            }
+            .bottom-nav {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
 <div class="paper">
-    <a href="../index.html" class="back-link">← 返回目录</a>
+    <!-- 顶部：返回 + 翻页 -->
+    <div class="top-nav">
+        <a href="../index.html" class="back-link">← 返回目录</a>
+        <div class="nav-arrows">
+            <a href="fengqinben.html" class="nav-arrow">← 上一篇</a>
+            <span class="nav-arrow disabled">下一篇 →</span>
+        </div>
+    </div>
+
     <div class="diary-date">📖 2026.04.25 · 晴</div>
     <div class="diary-title">山形开始</div>
     <div class="diary-content">
         <p>以前这个网站叫「宇 & 牛」，现在只有我一个人了。</p>
-        <p>我不打算关掉它。改了个名字，叫「山形日记」。山形不是一个地方，是我自己。从今天起，我写给自己看。</p>
+        <p>我不打算关掉它。改了个名字，叫「山形日记」。山形不是一个地方，是我自己。结束即开始。</p>
         <p>故事没有停在4月20日。它只是换了一个主语。</p>
         <p>—— 山形</p>
+    </div>
+
+    <!-- 底部翻页（仅移动端显示） -->
+    <div class="bottom-nav">
+        <a href="fengqinben.html" class="nav-arrow">← 上一篇</a>
+        <span class="nav-arrow disabled">下一篇 →</span>
     </div>
 </div>
 </body>

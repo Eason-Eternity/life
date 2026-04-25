@@ -21,16 +21,42 @@
             background: #ffffff;
             padding: 2.5rem 2rem;
         }
-        .back-link {
-            display: inline-block;
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 1.5rem;
+        }
+        .back-link {
             font-size: 0.8rem;
             color: #aeaba3;
             text-decoration: none;
+            transition: color 0.2s;
         }
         .back-link:hover {
             color: #6a5a4a;
         }
+        .nav-arrows {
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-arrow {
+            font-size: 0.8rem;
+            color: #aeaba3;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-arrow:hover {
+            color: #6a5a4a;
+        }
+        .nav-arrow.disabled {
+            color: #d6d4ce;
+            pointer-events: none;
+        }
+
+        /* 日期 */
         .diary-date {
             font-size: 0.7rem;
             color: #a5a19a;
@@ -38,12 +64,16 @@
             border-bottom: 1px solid #efede9;
             padding-bottom: 0.2rem;
         }
+
+        /* 标题 */
         .diary-title {
             font-size: 1.4rem;
             font-weight: 400;
             margin: 0.5rem 0 1.2rem 0;
             color: #231f1b;
         }
+
+        /* 正文 */
         .diary-content {
             font-size: 0.95rem;
             line-height: 1.7;
@@ -52,16 +82,51 @@
         .diary-content p {
             margin-bottom: 1rem;
         }
+
+        /* 底部翻页（移动端） */
+        .bottom-nav {
+            display: none;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #efede9;
+        }
+
+        @media (max-width: 500px) {
+            .paper {
+                padding: 1.5rem 1rem;
+            }
+            .top-nav .nav-arrows {
+                display: none;
+            }
+            .bottom-nav {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
 <div class="paper">
-    <a href="../index.html" class="back-link">← 返回目录</a>
+    <!-- 顶部导航 -->
+    <div class="top-nav">
+        <a href="../index.html" class="back-link">← 返回目录</a>
+        <div class="nav-arrows">
+            <span class="nav-arrow disabled">← 上一篇</span>
+            <a href="disanpian.html" class="nav-arrow">下一篇 →</a>
+        </div>
+    </div>
+
     <div class="diary-date">📖 2026.04.15 · 多云</div>
     <div class="diary-title">风琴本</div>
     <div class="diary-content">
         <p>把 days.xin 做成了风琴本的样子。你说是故事书，那我以后每一天都往里面写一页。</p>
         <p>窗外有风，阳光很好。这样就够了。</p>
+    </div>
+
+    <!-- 底部翻页（仅移动端显示） -->
+    <div class="bottom-nav">
+        <span class="nav-arrow disabled">← 上一篇</span>
+        <a href="disanpian.html" class="nav-arrow">下一篇 →</a>
     </div>
 </div>
 </body>
