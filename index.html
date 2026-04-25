@@ -3,116 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>📔 山形 · 日记</title>
+    <title>📔 山形 · 日记目录</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             background: #f9f9f7;
             font-family: 'Georgia', 'Times New Roman', '宋体', serif;
             padding: 2rem 1rem;
             color: #1e1e1c;
         }
-
         .book {
             max-width: 700px;
             margin: 0 auto;
             background: #ffffff;
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.02);
             padding: 2.5rem 2rem;
         }
-
         .title-page {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             border-bottom: 1px solid #e2e0db;
-            padding-bottom: 2rem;
+            padding-bottom: 1.5rem;
         }
-
         .title-page h1 {
             font-size: 2rem;
             font-weight: 400;
             letter-spacing: 4px;
             color: #2c2c2a;
-            margin-bottom: 0.3rem;
         }
-
         .title-page p {
             font-size: 0.75rem;
             color: #8c8a85;
-            text-transform: uppercase;
         }
-
-        .toc {
-            margin: 1.5rem 0 2rem;
-        }
-
         .toc-item {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            padding: 0.5rem 0;
+            padding: 0.6rem 0;
             border-bottom: 1px dotted #ecebe6;
-            cursor: pointer;
         }
-
-        .toc-item:hover {
-            background: #faf9f7;
-            padding-left: 0.5rem;
-        }
-
-        .toc-title {
+        .toc-item a {
+            text-decoration: none;
             font-size: 1rem;
-            font-weight: 400;
             color: #2b2b28;
         }
-
-        .toc-page {
+        .toc-item a:hover {
+            color: #8a7a6a;
+        }
+        .page-num {
             font-size: 0.7rem;
             color: #aeaba3;
         }
-
-        .diary-page {
-            margin-top: 1.5rem;
-        }
-
-        .diary-date {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #a5a19a;
-            margin-bottom: 0.8rem;
-            border-bottom: 1px solid #efede9;
-            padding-bottom: 0.2rem;
-        }
-
-        .diary-title {
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin: 1rem 0 1rem 0;
-            color: #231f1b;
-        }
-
-        .diary-content {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            color: #2e2c28;
-        }
-
-        .diary-content p {
-            margin-bottom: 1rem;
-        }
-
-        hr {
-            margin: 2rem 0;
-            border: none;
-            border-top: 1px solid #ecebe6;
-        }
-
         .footer-note {
             text-align: center;
             font-size: 0.65rem;
@@ -128,61 +72,20 @@
         <p>二零二六年 · 春</p>
     </div>
 
-    <!-- 目录区 -->
-    <div class="toc" id="tocContainer"></div>
-    <hr>
-
-    <!-- 日记展示区 -->
-    <div id="diaryContainer" class="diary-page"></div>
-    <div class="footer-note">路还长 · 慢慢记</div>
+    <div class="toc-item">
+        <a href="diary/shanxing-start.html">山形开始</a>
+        <span class="page-num">p.1</span>
+    </div>
+    <div class="toc-item">
+        <a href="diary/fengqinben.html">风琴本</a>
+        <span class="page-num">p.2</span>
+    </div>
+    <div class="toc-item">
+    <a href="diary/disanpian.html">我们的翻完了</a>
+    <span class="page-num">p.3</span>
 </div>
 
-<script>
-    // 日记数组 —— 第一篇是「山形开始」
-    const diaries = [
-        {
-            date: "2026.04.25 · 晴",
-            title: "山形开始",
-            content: "<p>以前这个网站叫「宇 & 牛」，现在只有我一个人了。</p><p>我不打算关掉它。改了个名字，叫「山形日记」。山形不是一个地方，是我自己。从今天起，我写给自己看。</p><p>故事没有停在4月20日。它只是换了一个主语。</p><p>—— 山形</p>"
-        }
-        // 你可以在这里继续添加日记
-        // {
-        //     date: "2026.04.26 · 阴",
-        //     title: "第二篇",
-        //     content: "<p>...</p>"
-        // }
-    ];
-
-    const tocContainer = document.getElementById('tocContainer');
-    const diaryContainer = document.getElementById('diaryContainer');
-
-    function renderDiary(index) {
-        const entry = diaries[index];
-        if (!entry) return;
-        diaryContainer.innerHTML = `
-            <div class="diary-date">📖 ${entry.date}</div>
-            <div class="diary-title">${entry.title}</div>
-            <div class="diary-content">${entry.content}</div>
-        `;
-    }
-
-    // 生成目录（按数组顺序）
-    diaries.forEach((diary, idx) => {
-        const tocDiv = document.createElement('div');
-        tocDiv.className = 'toc-item';
-        tocDiv.innerHTML = `
-            <span class="toc-title">${diary.title}</span>
-            <span class="toc-page">p.${idx + 1}</span>
-        `;
-        tocDiv.addEventListener('click', () => {
-            renderDiary(idx);
-            document.getElementById('diaryContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-        tocContainer.appendChild(tocDiv);
-    });
-
-    // 默认显示第一篇（山形开始）
-    renderDiary(0);
-</script>
+    <div class="footer-note">路还长 · 慢慢记</div>
+</div>
 </body>
 </html>
