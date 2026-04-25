@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>因为爱情 · 山形日记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f9f9f7;
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            padding: 2rem 1rem;
+        }
+        .paper {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 2.5rem 2rem;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .back-link {
+            font-size: 0.8rem;
+            color: #aeaba3;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: #6a5a4a;
+        }
+        .nav-arrows {
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-arrow {
+            font-size: 0.8rem;
+            color: #aeaba3;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-arrow:hover {
+            color: #6a5a4a;
+        }
+        .nav-arrow.disabled {
+            color: #d6d4ce;
+            pointer-events: none;
+        }
+
+        .diary-date {
+            font-size: 0.7rem;
+            color: #a5a19a;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #efede9;
+            padding-bottom: 0.2rem;
+        }
+
+        .diary-title {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin: 0.5rem 0 1.2rem 0;
+            color: #231f1b;
+        }
+
+        .diary-content {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #2e2c28;
+        }
+        .diary-content p {
+            margin-bottom: 1rem;
+        }
+
+        .bottom-nav {
+            display: none;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #efede9;
+        }
+
+        @media (max-width: 500px) {
+            .paper {
+                padding: 1.5rem 1rem;
+            }
+            .top-nav .nav-arrows {
+                display: none;
+            }
+            .bottom-nav {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="paper">
+    <div class="top-nav">
+        <a href="../index.html" class="back-link">← 返回目录</a>
+        <div class="nav-arrows">
+            <a href="shanxing-start.html" class="nav-arrow">← 上一篇</a>
+            <span class="nav-arrow disabled">下一篇 →</span>
+        </div>
+    </div>
+
+    <div class="diary-date">📖 2026.04.25 · 太阳</div>
+    <div class="diary-title">因为爱情</div>
+    <div class="diary-content">
+        <p>希望这就是你想要的自由。</p>
+        <p>我见青山多妩媚，料青山见我应如是。</p>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="shanxing-start.html" class="nav-arrow">← 上一篇</a>
+        <span class="nav-arrow disabled">下一篇 →</span>
+    </div>
+</div>
+</body>
+</html>
