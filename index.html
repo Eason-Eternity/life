@@ -3,122 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>给牛牛的一封信</title>
+    <title>山形 · 终</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            background: #e2dcd0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: #0a0a0a;
             min-height: 100vh;
-            padding: 2rem 1rem;
-            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Georgia', 'Times New Roman', serif;
         }
-
-        .letter {
-            max-width: 760px;
-            width: 100%;
-            background: #fffef7;
-            padding: 2.5rem 2.2rem;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-            background: linear-gradient(to bottom, #fffef7 0%, #fffef7 95%, #fbf7ef 100%);
-        }
-
-        .title {
+        .final {
             text-align: center;
-            margin-bottom: 2rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid #ddd8cd;
-        }
-
-        .title h1 {
-            font-size: 1.6rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            color: #3c2e24;
-        }
-
-        .content {
-            font-size: 1rem;
-            line-height: 1.75;
-            color: #2d241c;
-            text-align: justify;
-        }
-
-        .content p {
-            margin-bottom: 1.2rem;
-            text-indent: 2em;
-        }
-
-        /* 照片区域 */
-        .photo {
-            text-align: center;
-            margin: 2rem 0 1.5rem;
-        }
-
-        .photo img {
-            max-width: 100%;
-            width: auto;
-            max-height: 280px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .signature {
-            margin-top: 1.5rem;
-            text-align: right;
-            font-size: 0.9rem;
-            color: #6f5a48;
-            border-top: 1px dotted #ddd8cd;
-            padding-top: 1.2rem;
-        }
-
-        .signature div:first-child {
-            margin-bottom: 0.3rem;
-        }
-
-        @media (max-width: 550px) {
-            .letter {
-                padding: 1.6rem;
-            }
-            .title h1 {
-                font-size: 1.3rem;
-            }
-            .content {
-                font-size: 0.9rem;
-            }
+            color: #e6e0d4;
+            font-size: clamp(1.8rem, 8vw, 3.5rem);
+            font-weight: 300;
+            letter-spacing: 4px;
+            line-height: 1.4;
+            padding: 2rem;
         }
     </style>
 </head>
 <body>
-<div class="letter">
-    <div class="title">
-        <h1>给牛牛的一封信</h1>
-    </div>
-    <div class="content">
-        <p>亲爱的牛，最近过的好嘛？</p>
-        <p>时间过的太快，我的驾照都考完了，你跟你男朋友应该没违背我们当初约定好的吧，哈哈哈，其实那些东西我早就删了，我只是不想让你离我太远了。</p>
-        <p>谢谢你带给我4年此生之中最美好的时光 你包容了我太多的坏脾气，我却没能接受你的小脾气，对不起，我不好，回想那年，我们许下无数誓言，如今却未能实现，但也不重要了，我不想在这封信强行煽情，我只想让你把我忘的慢一点，那四年就当做是一个儿时记忆，我对你做错过很多事，我也反思了很多事，究其原因，只是你太偏爱我太纵容我，这几天我辗转反侧，我只感觉是自己对你不够好，但也不重要了，你只要觉得自己开心，做什么都可以！</p>
-        <p>从分手那几天我一直都在等，以前觉得眼睛一睁一闭就过去了，还觉得过很快，但那几天我眼睛一闭就是回忆，我无法静下心来做任何事，我中途都好想去找你加微信，可是我太懦弱了。</p>
-        <p>以前有你在，即使我过的再差到你这里也总会有一句，没事的宝宝！大不了再来！</p>
-        <p>你宛如那霓虹灯，在我本平平无奇的生活上带给我很多颜色，我太笨了，看不清你给的答案，有时候我也感觉自己很没用，我好想你，我真的好想你，你给我的快乐是没人能代替的，我真的好像来找你，可是我们已经结束了。</p>
-        <p>当你终于有机会看见这封信时，或许我早已漂泊流浪，如果我知道你看见这份信时，我一定是激动的！谢谢你把我忘记的这么慢！或许你看不见从头到尾都是我在自言自语，唉 我像一个彻头彻尾的疯子，舍不得你离开，又放不下这段感情，随时都在怀念与痛苦中度过。</p>
-        <p>如果你还愿意回来，不管你做了什么，过了多少个四季，我都愿意像阿甘正传那样一直等你回来！亲爱的你，请别走远</p>
-    </div>
-    <!-- 照片加在这里：日期之后，签名之前 -->
-    <div class="photo">
-        <img src="https://yushao-img.oss-cn-beijing.aliyuncs.com/95f714090893910958d4a55898c5ac00.jpg" alt="旧时光">
-    </div>
-    <div class="signature">
-        <div>宇</div>
-        <div>2021年10月29日</div>
-    </div>
-</div>
+    <div class="final">我们都熬出头了</div>
 </body>
 </html>
