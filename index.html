@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>days</title>
+    <title>days · 在一起</title>
     <style>
         * {
             margin: 0;
@@ -12,59 +12,76 @@
         }
 
         body {
-            background: #f7f5f0;
+            background: #fce8ec;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Georgia', 'Times New Roman', serif;
-            color: #4a3f38;
+            padding: 1.5rem;
         }
 
         .container {
             text-align: center;
-            letter-spacing: 2px;
+            background: rgba(255, 245, 247, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 2.5rem 2rem;
+            border-radius: 40px;
+            box-shadow: 0 8px 24px rgba(200, 120, 140, 0.12);
+            border: 1px solid rgba(255, 220, 225, 0.5);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .title {
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: #a06b78;
+            margin-bottom: 1rem;
         }
 
         .timer {
-            font-size: clamp(2.8rem, 10vw, 6rem);
+            font-size: clamp(2.6rem, 10vw, 5.6rem);
             font-weight: 300;
-            margin-bottom: 0.5rem;
-            color: #3a322c;
+            color: #5a3e44;
+            letter-spacing: 2px;
+            margin: 0.5rem 0 0.2rem;
         }
 
         .label {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #a09488;
-            margin-bottom: 2rem;
-        }
-
-        .description {
-            font-size: 0.8rem;
-            color: #b8aea2;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
+            color: #bb8a94;
+            margin-top: 0.5rem;
         }
 
         .separator {
-            width: 40px;
+            width: 30px;
             height: 1px;
-            background: #d6cec4;
-            margin: 1.5rem auto;
+            background: #e6c8cd;
+            margin: 1.2rem auto 1.5rem;
+        }
+
+        .footer-note {
+            font-size: 0.65rem;
+            color: #c9a4ac;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="title">✦ 在一起总计 ✦</div>
         <div class="timer" id="timer">00:00:00:00</div>
-        <div class="label">days since 2026.08.16</div>
+        <div class="label">days · since 2026.08.10</div>
         <div class="separator"></div>
-        <div class="description">——</div>
+        <div class="footer-note">——</div>
     </div>
 
     <script>
-        const startDate = new Date('2026-08-16T00:00:00');
+        const startDate = new Date('2026-08-10T15:00:00');
 
         function updateTimer() {
             const now = new Date();
