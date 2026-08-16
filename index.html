@@ -3,33 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>山形 · 终</title>
+    <title>days</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            background: #0a0a0a;
+            background: #f7f5f0;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Georgia', 'Times New Roman', serif;
+            color: #4a3f38;
         }
-        .final {
+
+        .container {
             text-align: center;
-            color: #e6e0d4;
-            font-size: clamp(1.8rem, 8vw, 3.5rem);
+            letter-spacing: 2px;
+        }
+
+        .timer {
+            font-size: clamp(2.8rem, 10vw, 6rem);
             font-weight: 300;
+            margin-bottom: 0.5rem;
+            color: #3a322c;
+        }
+
+        .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
             letter-spacing: 4px;
-            line-height: 1.4;
-            padding: 2rem;
+            color: #a09488;
+            margin-bottom: 2rem;
+        }
+
+        .description {
+            font-size: 0.8rem;
+            color: #b8aea2;
+            letter-spacing: 1px;
+        }
+
+        .separator {
+            width: 40px;
+            height: 1px;
+            background: #d6cec4;
+            margin: 1.5rem auto;
         }
     </style>
 </head>
 <body>
-    <div class="final">我们都熬出头了</div>
+    <div class="container">
+        <div class="timer" id="timer">00:00:00:00</div>
+        <div class="label">days since 2026.08.16</div>
+        <div class="separator"></div>
+        <div class="description">——</div>
+    </div>
+
+    <script>
+        const startDate = new Date('2026-08-16T00:00:00');
+
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - startDate;
+
+            if (diff < 0) {
+                document.getElementById('timer').textContent = '00:00:00:00';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('timer').textContent =
+                `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    </script>
 </body>
 </html>
